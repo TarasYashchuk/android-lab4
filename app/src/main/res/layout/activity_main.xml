@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Поточний УФ-індекс"
+            android:textSize="16sp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/tvCurrentUv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0.0"
+            android:textSize="64sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/tvRecommendation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Безпечно"
+            android:textAlignment="center"
+            android:padding="12dp"
+            android:background="#4CAF50"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnStartStop"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Start Recording"
+                android:backgroundTint="#2196F3"
+                android:layout_marginEnd="8dp"/>
+
+            <EditText
+                android:id="@+id/etInterval"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="64dp"
+                android:hint="2"
+                android:inputType="number"
+                android:text="2"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" sec"
+                android:textSize="16sp"
+                android:layout_marginEnd="8dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnClearData"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Clear History"
+                android:backgroundTint="#F44336"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/btnExportCsv"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Export CSV"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Історія вимірювань"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp"/>
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/uvChart"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnZoomOut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/btnZoomIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/btnFilterHour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last Hour"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/btnFilterAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All Time"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+        </LinearLayout>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="3"
+            android:rowCount="2">
+
+            <TextView android:text="MIN" android:textStyle="bold" android:gravity="center" android:layout_columnWeight="1"/>
+            <TextView android:text="AVG" android:textStyle="bold" android:gravity="center" android:layout_columnWeight="1"/>
+            <TextView android:text="MAX" android:textStyle="bold" android:gravity="center" android:layout_columnWeight="1"/>
+
+            <TextView android:id="@+id/tvMin" android:text="-" android:gravity="center" android:textSize="18sp" android:layout_columnWeight="1"/>
+            <TextView android:id="@+id/tvAvg" android:text="-" android:gravity="center" android:textSize="18sp" android:layout_columnWeight="1"/>
+            <TextView android:id="@+id/tvMax" android:text="-" android:gravity="center" android:textSize="18sp" android:layout_columnWeight="1"/>
+        </GridLayout>
+
+    </LinearLayout>
+</ScrollView>
